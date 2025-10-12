@@ -11,8 +11,21 @@ public class Cofre {
         this.moedas.add(moeda);
     }
 
-    public void removeMoeda(Moeda moeda){
-        this.moedas.remove(moeda);
+    public List<Moeda> getMoedas(){
+        return moedas;
+    }
+
+    public void removeMoeda(int indice, double quantidade){
+        if (indice>0 && indice<=moedas.size()) {
+            Moeda moeda = moedas.get(indice - 1);
+
+            if (quantidade>=moeda.getValor())
+                moedas.remove(indice-1);
+            else{
+                moeda.setValor(moeda.getValor()-quantidade);
+            }
+        }
+
     }
 
     public void listarMoedas(){
@@ -21,8 +34,8 @@ public class Cofre {
          return;
      }
      else{
-         for (Moeda m : moedas){
-             System.out.println(m.info());
+         for (int i = 0;i<moedas.size();i++){
+             System.out.println((i + 1) + " - " + moedas.get(i).info());
          }
      }
     }

@@ -2,7 +2,7 @@ package Model.Entities;
 
 public class Dolar extends Moeda{
 
-    private final static double cotacao = 5.53;
+    private static double cotacao = 5.53;
 
     public Dolar(double valor){
         super(valor);
